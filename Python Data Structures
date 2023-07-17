@@ -1,0 +1,83 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOJoB5yvoTsczrQgxz+ECkk",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Ctotten96/Cody-Totten--Conditional-and-Iterative-Statement/blob/master/Python%20Data%20Structures\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "id": "EJiY0iWwAi9T",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f7000995-0130-42bf-f772-41bc6ef4e805"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "                  mean       std  min   max\n",
+            "sepal_length  5.843333  0.828066  4.3   7.9\n",
+            "sepal_width   3.057333  0.435866  2.0   4.4\n",
+            "petal_length  3.758000  1.765298  1.0   6.9\n",
+            "petal_width   1.199333  0.762238  0.1   2.5\n",
+            "sepal_sum     8.900667  0.889272  6.8  11.7\n",
+            "petal_sum     4.957333  2.507689  1.2   9.2\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Step 1: Importing necessary libraries\n",
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "import seaborn as sns\n",
+        "\n",
+        "# Step 2: Loading iris dataset\n",
+        "iris = sns.load_dataset('iris')\n",
+        "\n",
+        "# Step 3: Drop the \"species\" column in the iris data frame\n",
+        "iris = iris.drop(columns=[\"species\"])\n",
+        "\n",
+        "# Step 4: Add two more columns to the iris daata\n",
+        "iris[\"sepal_sum\"] = iris[\"sepal_length\"] + iris[\"sepal_width\"]\n",
+        "iris[\"petal_sum\"] = iris[\"petal_length\"] + iris[\"petal_width\"]\n",
+        "\n",
+        "# Step 5: Create a new data frame with the summary stats for the iris dataset\n",
+        "summary_stats = pd.DataFrame()\n",
+        "\n",
+        "summary_stats[\"mean\"] = iris.mean()\n",
+        "summary_stats[\"std\"] = iris.std()\n",
+        "summary_stats[\"min\"] = iris.min()\n",
+        "summary_stats[\"max\"] = iris.max()\n",
+        "\n",
+        "# Print the summary_stats\n",
+        "print(summary_stats)\n"
+      ]
+    }
+  ]
+}
